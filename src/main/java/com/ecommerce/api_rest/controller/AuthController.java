@@ -1,8 +1,8 @@
 package com.ecommerce.api_rest.controller;
 
-import com.ecommerce.api_rest.dto.AuthResponseDto;
-import com.ecommerce.api_rest.dto.UserLoginDto;
-import com.ecommerce.api_rest.dto.UserRegisterDto;
+import com.ecommerce.api_rest.dto.auth.AuthResponseDto;
+import com.ecommerce.api_rest.dto.user.UserLoginDto;
+import com.ecommerce.api_rest.dto.user.UserRegisterDto;
 import com.ecommerce.api_rest.entity.Role;
 import com.ecommerce.api_rest.entity.User;
 import com.ecommerce.api_rest.jwt.JwtUtil;
@@ -39,9 +39,7 @@ public class AuthController {
     public ResponseEntity<AuthResponseDto> register(
             @RequestBody @Valid UserRegisterDto dto) {
 
-        log.debug("Registrando usuário: {}", dto.getUsername());
         User user = userService.registerNewUser(dto.getUsername(), dto.getPassword());
-        log.debug("Usuário criado com roles: {}", user.getRoles());
 
         var authorities = user.getRoles()
                 .stream()
@@ -49,7 +47,6 @@ public class AuthController {
                 .toList();
 
         String token = jwtUtil.generateToken(user.getUsername(), authorities);
-        log.debug("Token gerado: {}", token);
 
         return ResponseEntity.ok(new AuthResponseDto(token));
     }

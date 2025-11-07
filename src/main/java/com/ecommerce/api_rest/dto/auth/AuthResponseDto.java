@@ -1,4 +1,4 @@
-package com.ecommerce.api_rest.dto;
+package com.ecommerce.api_rest.dto.auth;
 
 import lombok.Getter;
 import lombok.Setter;

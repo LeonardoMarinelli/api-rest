@@ -9,46 +9,46 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "produtos")
+@Table(name = "products")
 @Getter @Setter
-public class Produto {
+public class Product {
     @Id
     @GeneratedValue
     private UUID id;
 
     @Column(nullable = false)
-    private String nome;
+    private String name;
 
     @Column(length = 1000)
-    private String descricao;
+    private String description;
 
     @Column(nullable = false)
-    private BigDecimal preco;
+    private BigDecimal price;
 
     @Column(nullable = false)
-    private String categoria;
+    private String category;
 
     @Column(nullable = false)
-    private Integer quantidadeEstoque;
+    private Integer amountInStock;
 
     @Column(nullable = false, updatable = false)
-    private LocalDateTime criadoEm;
+    private LocalDateTime createdIn;
 
     @Column(nullable = false)
-    private LocalDateTime atualizadoEm;
+    private LocalDateTime updatedIn;
 
-    public Produto() {
+    public Product() {
 
     }
 
     @PrePersist
     protected void onCreate() {
-        criadoEm = LocalDateTime.now();
-        atualizadoEm = criadoEm;
+        createdIn = LocalDateTime.now();
+        updatedIn = createdIn;
     }
 
     @PreUpdate
     protected void onUpdate() {
-        atualizadoEm = LocalDateTime.now();
+        updatedIn = LocalDateTime.now();
     }
 }
