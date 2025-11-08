@@ -1,6 +1,6 @@
 package com.ecommerce.api_rest.service;
 
-import com.ecommerce.api_rest.entity.Role;
+import com.ecommerce.api_rest.entity.enums.Role;
 import com.ecommerce.api_rest.entity.User;
 import com.ecommerce.api_rest.repository.UserRepository;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;

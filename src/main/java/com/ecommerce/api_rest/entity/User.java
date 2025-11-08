@@ -1,5 +1,6 @@
 package com.ecommerce.api_rest.entity;
 
+import com.ecommerce.api_rest.entity.enums.Role;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;

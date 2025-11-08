@@ -7,6 +7,7 @@ import com.ecommerce.api_rest.service.ProductService;
 import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,6 +24,7 @@ public class ProductController {
     }
 
     @GetMapping
+    @PreAuthorize("isAuthenticated()")
     public ResponseEntity<List<ProductResponseDto>> listAll() {
         List<Product> products = productService.listAll();
         List<ProductResponseDto> responses = products.stream()
@@ -32,6 +34,7 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
+    @PreAuthorize("isAuthenticated()")
     public ResponseEntity<ProductResponseDto> findById(@PathVariable UUID id) {
         Product product = productService.findById(id);
         ProductResponseDto response = mapToResponseDto(product);
@@ -39,6 +42,7 @@ public class ProductController {
     }
 
     @PostMapping
+    @PreAuthorize("isAuthenticated()")
     public ResponseEntity<ProductResponseDto> createProduct(
             @RequestBody @Valid ProductRequestDto request) {
         Product entity = mapToEntity(request);
@@ -48,6 +52,7 @@ public class ProductController {
     }
 
     @PutMapping("/{id}")
+    @PreAuthorize("isAuthenticated()")
     public ResponseEntity<ProductResponseDto> updateProduct(
             @PathVariable UUID id,
             @RequestBody @Valid ProductRequestDto requestDto) {
@@ -58,6 +63,7 @@ public class ProductController {
     }
 
     @DeleteMapping("/{id}")
+    @PreAuthorize("isAuthenticated()")
     public ResponseEntity<Void> deleteProduct(@PathVariable UUID id) {
         productService.delete(id);
         return ResponseEntity.noContent().build();

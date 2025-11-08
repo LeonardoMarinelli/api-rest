@@ -3,7 +3,7 @@ package com.ecommerce.api_rest.controller;
 import com.ecommerce.api_rest.dto.auth.AuthResponseDto;
 import com.ecommerce.api_rest.dto.user.UserLoginDto;
 import com.ecommerce.api_rest.dto.user.UserRegisterDto;
-import com.ecommerce.api_rest.entity.Role;
+import com.ecommerce.api_rest.entity.enums.Role;
 import com.ecommerce.api_rest.entity.User;
 import com.ecommerce.api_rest.jwt.JwtUtil;
 import com.ecommerce.api_rest.service.UserService;

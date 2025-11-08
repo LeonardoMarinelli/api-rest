@@ -1,4 +1,4 @@
-package com.ecommerce.api_rest.entity;
+package com.ecommerce.api_rest.entity.enums;
 
 public enum Role {
     ROLE_USER,
