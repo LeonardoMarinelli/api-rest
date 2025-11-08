@@ -1,0 +1,343 @@
+{
+	"info": {
+		"_postman_id": "0b6e155f-c3f4-4161-b4f9-39a1bab6e29b",
+		"name": "rest-api",
+		"description": "Documentação de testes para a API Rest.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "32405115"
+	},
+	"item": [
+		{
+			"name": "Usuário",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"usuario_teste\",\r\n  \"password\": \"senha123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/auth/login",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "CriarUsuario",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"usuario_teste\",\r\n  \"password\": \"senha123\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/auth/register",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"auth",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Produto",
+			"item": [
+				{
+					"name": "CriarProduto",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c3VhcmlvX3Rlc3RlIiwiaWF0IjoxNzYyNTczNTU0LCJleHAiOjE3NjI1NzcxNTQsInJvbGVzIjpbIlJPTEVfQURNSU4iXX0.Xfy_uJtidD-c2xHST8_HaXWPaxpRKzmGI6js-7pIdjc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Xerjoff Erba Pura\",\r\n  \"description\": \"Erba Pura de Xerjoff é um perfume Oriental Frutado compartilhável.\",\r\n  \"price\": 1899.90,\r\n  \"category\": \"Perfume\",\r\n  \"amountInStock\": 100\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/products",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarProdutos",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c3VhcmlvX3Rlc3RlIiwiaWF0IjoxNzYyNTczNTU0LCJleHAiOjE3NjI1NzcxNTQsInJvbGVzIjpbIlJPTEVfQURNSU4iXX0.Xfy_uJtidD-c2xHST8_HaXWPaxpRKzmGI6js-7pIdjc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/products",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"products"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Pedido",
+			"item": [
+				{
+					"name": "CriarPedido",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c3VhcmlvX3Rlc3RlIiwiaWF0IjoxNzYyNTc0MDMxLCJleHAiOjE3NjI1Nzc2MzEsInJvbGVzIjpbIlJPTEVfQURNSU4iXX0.sE7qQwemFBWV0mIB070WX0BfTy9cv7dE1QEUs-KbqoA",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"items\": [\r\n    {\r\n      \"productId\": \"907157fe-7db5-40e1-90f9-81823c6e618b\",\r\n      \"quantity\": 2\r\n    }\r\n  ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseURL}}/api/orders",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarPedidos",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c3VhcmlvX3Rlc3RlIiwiaWF0IjoxNzYyNTc0NTM5LCJleHAiOjE3NjI1NzgxMzksInJvbGVzIjpbIlJPTEVfQURNSU4iXX0.W7wfnlVHNtuqChd2pvQ4Td490cqOn9DTjCH5RuSsUAw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/orders",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"orders"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PagarPedido",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c3VhcmlvX3Rlc3RlIiwiaWF0IjoxNzYyNTc0MDMxLCJleHAiOjE3NjI1Nzc2MzEsInJvbGVzIjpbIlJPTEVfQURNSU4iXX0.sE7qQwemFBWV0mIB070WX0BfTy9cv7dE1QEUs-KbqoA",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/orders/89157f40-769e-457a-ad9e-7f5c2b6fb4ef/pay",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"89157f40-769e-457a-ad9e-7f5c2b6fb4ef",
+								"pay"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ListarPedidosPorUser",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c3VhcmlvX3Rlc3RlIiwiaWF0IjoxNzYyNTc0NTM5LCJleHAiOjE3NjI1NzgxMzksInJvbGVzIjpbIlJPTEVfQURNSU4iXX0.W7wfnlVHNtuqChd2pvQ4Td490cqOn9DTjCH5RuSsUAw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/orders/user/489e0eb9-2882-4ab7-a71a-63ca618a2d95",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"orders",
+								"user",
+								"489e0eb9-2882-4ab7-a71a-63ca618a2d95"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Análise",
+			"item": [
+				{
+					"name": "TopUsers",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c3VhcmlvX3Rlc3RlIiwiaWF0IjoxNzYyNTc1MzE3LCJleHAiOjE3NjI1Nzg5MTcsInJvbGVzIjpbIlJPTEVfQURNSU4iXX0.K-3kAx6JnABSQgMXLUTXtKkuk9Dpf5phDcx0hVgXu9o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/analytics/top-users",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"analytics",
+								"top-users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TicketMedio",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c3VhcmlvX3Rlc3RlIiwiaWF0IjoxNzYyNTc1OTg4LCJleHAiOjE3NjI1Nzk1ODgsInJvbGVzIjpbIlJPTEVfQURNSU4iXX0.uykYk7Fl9qdnQ-ta7YBCtllNKb47MdfqgJmj3JhzAko",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/analytics/average-ticket-by-user",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"analytics",
+								"average-ticket-by-user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "TotalFaturadoMês",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1c3VhcmlvX3Rlc3RlIiwiaWF0IjoxNzYyNTc1MzE3LCJleHAiOjE3NjI1Nzg5MTcsInJvbGVzIjpbIlJPTEVfQURNSU4iXX0.K-3kAx6JnABSQgMXLUTXtKkuk9Dpf5phDcx0hVgXu9o",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{baseURL}}/api/analytics/revenue/current-month",
+							"host": [
+								"{{baseURL}}"
+							],
+							"path": [
+								"api",
+								"analytics",
+								"revenue",
+								"current-month"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"key": "baseURL",
+			"value": "",
+			"type": "default"
+		}
+	]
+}
